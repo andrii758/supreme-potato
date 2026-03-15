@@ -1,0 +1,51 @@
+/* --- Контейнер сторінки --- */
+.pos-relative { position: relative; }
+
+/* --- Банер --- */
+.profile-banner-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #cfd9de;
+}
+
+.profile-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Аватар --- */
+.avatar-wrapper {
+    position: absolute;
+    top: -65px; /* Трохи підкоригував для візуального балансу */
+    left: 15px;
+    z-index: 5;
+}
+
+.profile-avatar-img, .avatar-placeholder {
+    width: 133px;
+    height: 133px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.border-white {
+    border: 4px solid #ffffff !important;
+}
+
+/* --- Вкладки --- */
+.profile-tabs a {
+    transition: 0.2s;
+    border-bottom: 4px solid transparent;
+    color: #536471;
+    text-decoration: none;
+}
+
+.profile-tabs a:hover { background-color: rgba(15, 20, 25, 0.1); }
+
+.profile-tabs a.active {
+    border-color: #1d9bf0;
+    color: #0f1419 !important;
+}

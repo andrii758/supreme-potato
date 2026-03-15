@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap_icons %}
+
+{% block title %}@{{ profile_obj.user.username }} / X{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <div class="d-flex align-items-center p-2 border-bottom sticky-top bg-white bg-opacity-75" style="backdrop-filter: blur(12px);">
+        <a href="{% url 'home' %}" class="btn btn-link text-dark p-1 rounded-circle me-3">
+            {% bs_icon 'arrow-left' size='1.2em' %}
+        </a>
+        <div>
+            <h5 class="fw-bold m-0">{{ profile_obj.user.first_name|default:profile_obj.user.username }}</h5>
+            </div>
+    </div>
+{% endblock header %}
+
+{% block content %}
+<div class="profile-page">
+    
+    <div class="profile-banner-wrapper">
+        {% if profile_obj.banner %}
+            <img src="{{ profile_obj.banner.url }}" alt="banner" class="profile-banner-img">
+        {% else %}
+            <div class="profile-banner-placeholder bg-secondary"></div>
+        {% endif %}
+    </div>
+
+    <div class="p-3 border-bottom pos-relative">
+        
+        <div class="avatar-wrapper">
+            {% if profile_obj.avatar %}
+                <img src="{{ profile_obj.avatar.url }}" alt="avatar" class="profile-avatar-img rounded-circle border border-4 border-white">
+            {% else %}
+                <div class="avatar-placeholder bg-dark rounded-circle border border-4 border-white d-flex align-items-center justify-content-center text-white fw-bold fs-1">
+                    {{ profile_obj.user.username|first|upper }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="text-end mb-4">
+            {% if request.user == profile_obj.user %}
+                <a href="#" class="btn btn-outline-dark rounded-pill fw-bold px-3">Edit profile</a>
+            {% else %}
+            <button class="btn btn-dark rounded-pill fw-bold px-3">Follow</button>
+            {% endif %}
+        </div>
+
+        <div class="mt-5 pt-3">
+            <h4 class="fw-bold m-0">{{ profile_obj.user.first_name|default:profile_obj.user.username }}</h4>
+            <p class="text-muted fs-5">@{{ profile_obj.user.username }}</p>
+        </div>
+
+        {% if profile_obj.bio %}
+            <p class="mt-3 lead text-dark">{{ profile_obj.bio }}</p>
+        {% endif %}
+
+        <div class="d-flex flex-wrap text-muted mt-3 gap-3">
+            {% if profile_obj.location %}
+                <span class="d-flex align-items-center">
+                    {% bs_icon 'geo-alt' size='1em' extra_classes='me-1' %} {{ profile_obj.location }}
+                </span>
+            {% endif %}
+            {% if profile_obj.website %}
+                <span class="d-flex align-items-center">
+                    {% bs_icon 'link-45deg' size='1.2em' extra_classes='me-1' %} 
+                    <a href="{{ profile_obj.website }}" target="_blank" class="text-primary text-decoration-none">
+                        {{ profile_obj.website|cut:"http://"|cut:"https://" }}
+                    </a>
+                </span>
+            {% endif %}
+            <span class="d-flex align-items-center">
+                {% bs_icon 'calendar3' size='1em' extra_classes='me-1' %} 
+                Joined: {{ profile_obj.user.date_joined|date:"M Y" }}
+            </span>
+        </div>
+
+        <div class="d-flex mt-3 gap-3">
+            </div>
+    </div>
+
+    <div class="d-flex border-bottom text-center profile-tabs">
+        <a href="#" class="flex-fill p-3 text-dark fw-bold active text-decoration-none">Posts</a>
+        <a href="#" class="flex-fill p-3 text-muted fw-bold text-decoration-none">Replies</a>
+        <a href="#" class="flex-fill p-3 text-muted fw-bold text-decoration-none">Media</a>
+        <a href="#" class="flex-fill p-3 text-muted fw-bold text-decoration-none">Likes</a>
+    </div>
+
+    <div class="posts-list">
+        </div>
+
+</div>
+{% endblock %}

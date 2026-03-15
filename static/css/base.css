@@ -1,0 +1,104 @@
+/* --- Глобальні налаштування --- */
+body {
+    background-color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.leading-tight { line-height: 1.2; }
+
+/* --- Сайдбар (Ліва панель) --- */
+.sidebar {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 10px 20px 20px 0;
+}
+
+.logo-wrapper {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.logo-wrapper:hover { background-color: rgba(29, 155, 240, 0.1); }
+
+.main-logo {
+    display: block;
+    height: 40px; /* Зменшив до нормального розміру X */
+    width: auto;
+}
+
+/* Навігаційні посилання */
+.nav-link {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    color: #0f1419;
+    padding: 12px 15px;
+    margin-bottom: 5px;
+    border-radius: 9999px;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background-color: rgba(15, 20, 25, 0.1);
+    color: #0f1419;
+}
+
+/* Перемикач профілю знизу */
+.profile-switcher {
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.profile-switcher:hover { background-color: rgba(15, 20, 25, 0.1); }
+
+/* --- Центральний контент --- */
+.main-content {
+    border-left: 1px solid #eff3f4;
+    border-right: 1px solid #eff3f4;
+    min-height: 100vh;
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid #eff3f4;
+}
+
+/* --- Права панель (Тренди/Пошук) --- */
+.search-bar {
+    background-color: #eff3f4;
+    border: 1px solid transparent;
+    padding: 10px 20px;
+    border-radius: 9999px;
+}
+
+.search-bar:focus {
+    background-color: #fff;
+    border-color: #1d9bf0;
+    box-shadow: none;
+}
+
+.trends-container {
+    background-color: #f7f9f9;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.trend-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.trend-item:hover { background-color: rgba(0, 0, 0, 0.03); }
+
+/* --- Випадаюче меню (Logout) --- */
+.dropdown-menu {
+    box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px, rgba(101, 119, 134, 0.15) 0px 0px 3px
