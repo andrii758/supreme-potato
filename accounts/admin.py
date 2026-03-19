@@ -4,14 +4,19 @@ from django.contrib.auth.models import User
 from .models import Profile
 
 
+# 
 class ProfileInline(admin.StackedInline):
     model = Profile
     can_delete = False
     verbose_name_plural = "profile"
 
+# tack on the profile to the standart menu of updating the user
 class CustomUserAdmin(UserAdmin):
     inlines = (ProfileInline,)
 
 
+# unregister
 admin.site.unregister(User)
+
+# register
 admin.site.register(User, CustomUserAdmin)

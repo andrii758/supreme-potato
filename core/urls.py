@@ -19,10 +19,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/", include("django.contrib.auth.urls")), # standart django's logout etc.
 
-    path('accounts/', include("accounts.urls")),
-    path('', include("posts.urls")),
+    path('accounts/', include("accounts.urls")), # profile 
+    path('', include("posts.urls")), # home page and redirect to home
 
-    path('<str:username>/', include("articles.urls")), # must be the last one
+    path('<str:username>/', include("articles.urls")), # must be the last one due to its route
 ]

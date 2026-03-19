@@ -38,13 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 3rd party
-    'crispy_bootstrap5',
+    'crispy_bootstrap5', 
     'crispy_forms',
-    'django_bootstrap_icons',
+    'django_bootstrap_icons', 
     # local
-    'accounts',
-    'posts',
-    'articles',
+    'accounts', # working with users
+    'posts', # home page
+    'articles', # working with articles 
 ]
 
 MIDDLEWARE = [
@@ -124,7 +124,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
-
 
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "login"

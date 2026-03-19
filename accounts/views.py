@@ -25,11 +25,10 @@ class SignUpView(CreateView):
 class ProfileView(DetailView):
     model = Profile
     template_name = "profile.html"
+
+    # specify the name for data in HTML
     context_object_name = "profile_obj"
+
+    # tell django to find the profile not by ID, but by username field
     slug_field = "user__username"
     slug_url_kwarg = "username"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        return context

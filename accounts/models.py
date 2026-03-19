@@ -4,6 +4,7 @@ from django.dispatch import receiver
 
 
 class Profile(models.Model):
+    # we extend the standart User class and chain it with profile.
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(
         upload_to="avatars/", default="static/img/default_avatar.jpg"
@@ -23,12 +24,13 @@ class Profile(models.Model):
         symmetrical=False,
     )
     
-    USERNAME_FIELD = 'username'
+    USERNAME_FIELD = 'identifier'
 
     def __str__(self):
         return f"@{self.user.username} Profile"
 
 
+# for the future
 class Follow(models.Model):
     user_from = models.ForeignKey(
         Profile, related_name="rel_from_set", on_delete=models.CASCADE
