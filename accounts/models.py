@@ -7,10 +7,10 @@ class Profile(models.Model):
     # we extend the standart User class and chain it with profile.
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(
-        upload_to="avatars/", default="static/img/default_avatar.jpg"
+        upload_to="avatars/", null=True, blank=True
     )
     banner = models.ImageField(
-        upload_to="banners/", default="static/img/default_banner.jpg"
+        upload_to="banners/", null=True, blank=True
     )
     bio = models.TextField(max_length=160, blank=True)
     location = models.CharField(max_length=100, blank=True)

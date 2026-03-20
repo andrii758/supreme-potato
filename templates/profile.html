@@ -40,8 +40,8 @@
         </div>
 
         <div class="text-end mb-4">
-            {% if request.user == profile_obj.user %}
-                <a href="#" class="btn btn-outline-dark rounded-pill fw-bold px-3">Edit profile</a>
+            {% if request.user.username == profile_obj.user.username %}
+            <a href="{% url 'profile_edit' %}" class="btn btn-outline-dark rounded-pill fw-bold px-3">Edit profile</a> 
             {% else %}
             <button class="btn btn-dark rounded-pill fw-bold px-3">Follow</button>
             {% endif %}

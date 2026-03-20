@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Edit profile{% endblock title %}
+
+{% block content %}
+<div class="p-3 border-bottom">
+    <h4 class="fw-bold m-0">Edit profile</h4>
+</div>
+
+<div class="container mt-4">
+    <form method="post" enctype="multipart/form-data" class="bg-white p-4 rounded shadow-sm border">
+        {% csrf_token %}
+
+        <div class="mb-4">
+ <label class="form-label fw-bold">Current Banner</label>
+
+            <div class="mb-2" style="width: 100%; height: 150px; overflow: hidden; border-radius: 8px; background: #f0f0f0;">
+                {% if user.profile.banner %}
+                                       <img src="{{ user.profile.banner.url }}" style="width: 100%; height: 100%; object-fit: cover;">
+                {% else %}
+                    <img src="{% static 'img/default_banner.jpg' %}" style="width: 100%; height: 100%; object-fit: cover;">
+                {% endif %}
+            </div>
+            {{ form.banner|as_crispy_field }}
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label fw-bold">Current Avatar</label>
+            <div class="mb-2">
+                {% if user.profile.avatar %}
+                    <img src="{{ user.profile.avatar.url }}" class="rounded-circle border" style="width: 80px; height: 80px; object-fit: cover;">
+                {% else %}
+                    <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center text-white" style="width: 80px; height: 80px;">
+                        {{ user.username|first|upper }}
+                    </div>
+                {% endif %}
+            </div>
+            {{ form.avatar|as_crispy_field }}
+        </div>
+
+        {{ form.bio|as_crispy_field }}
+        {{ form.location|as_crispy_field }} <div class="d-flex justify-content-end gap-2 mt-4 border-top pt-3">
+            <a href="{% url 'profile' username=request.user.username %}" class="btn btn-light rounded-pill px-4">Cancel</a>
+            <button class="btn btn-dark rounded-pill px-4 fw-bold" type="submit">Save Changes</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

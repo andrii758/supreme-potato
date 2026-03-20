@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Увійти в X / X</title>
+    <title>Login X / X</title> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/registration.css' %}">
 </head>
@@ -24,8 +24,8 @@
                     <img src="{% static 'img/logo.jpg' %}" alt="logo" style="height: 40px; filter: invert(0);">
                 </div>
 
-                <h1 class="main-title">В курсі подій</h1>
-                <h3 class="sub-title">Увійдіть в X</h3>
+                <h1 class="main-title">Up to date</h1>
+                <h3 class="sub-title">Login X</h3>
 
                 <form method="post">
                     {% csrf_token %}
@@ -33,14 +33,14 @@
                     
                     <div class="d-grid gap-3 mt-4">
                         <button type="submit" class="btn btn-black">Увійти</button>
-                        <a href="#" class="btn btn-outline-custom text-decoration-none text-center">Забули пароль?</a>
+                        <a href="#" class="btn btn-outline-custom text-decoration-none text-center">Forgot password?</a>
                     </div>
                 </form>
 
                 <div class="mt-5">
                     <p class="text-muted">
-                        Ще не зареєстровані? 
-                        <a href="{% url 'signup' %}" class="text-primary text-decoration-none fw-bold">Зареєструватися</a>
+                        Not register yet? 
+                        <a href="{% url 'signup' %}" class="text-primary text-decoration-none fw-bold">Register</a>
                     </p>
                 </div>
             </div>

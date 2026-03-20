@@ -102,3 +102,61 @@ body {
 /* --- Випадаюче меню (Logout) --- */
 .dropdown-menu {
     box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px, rgba(101, 119, 134, 0.15) 0px 0px 3px
+
+/* --- СТИЛІ ДЛЯ РЕДАГУВАННЯ ПРОФІЛЮ --- */
+
+/* Контейнер баннера - ОБОВ'ЯЗКОВО обмежити висоту */
+.banner-edit-group {
+    width: 100%;
+    height: 200px !important; /* !important гарантує, що висота буде 200px */
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f2f5;
+}
+
+.banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Це обріже фото під 200px висоти без деформації */
+}
+
+/* Контейнер аватара */
+.avatar-edit-group {
+    position: absolute;
+    bottom: -50px;
+    left: 20px;
+    z-index: 5;
+}
+
+.avatar-wrapper {
+    width: 120px !important;
+    height: 120px !important;
+    position: relative;
+}
+
+.avatar-img {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid white;
+}
+
+/* Оверлей (іконка камери поверх фото) */
+.media-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1; /* Зробимо видимим завжди для тесту */
+}
+
+.upload-icon {
+    cursor: pointer;
+    background: rgba(15, 20, 25, 0.7);
+    padding: 8px;
+    border-radius: 50%;
+    display: inline-flex;
+}

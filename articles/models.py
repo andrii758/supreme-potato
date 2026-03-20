@@ -4,10 +4,9 @@ from django.conf import settings
 
 User = settings.AUTH_USER_MODEL
 
-
 class Article(models.Model):
-    text = models.TextField()
-    image = models.ImageField(upload_to="uploads/%Y/%m/%d")
+    text = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to="uploads/%Y/%m/%d", blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(
         User,
